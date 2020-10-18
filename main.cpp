@@ -13,8 +13,12 @@ int main() {
 
     Laboratorio lab;
 
-    lab.agregarFinal(c01);
-    lab.agregarFinal(c02);
+    // lab.agregarFinal(c01);
+    // lab.agregarFinal(c02);
+
+    Computadora c03;
+    cin >> c03;
+    lab << c01 << c02 << c03;
     lab.mostrar();
     return 0;
 }

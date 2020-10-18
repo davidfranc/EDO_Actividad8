@@ -2,6 +2,8 @@
 #define COMPUTADORA_H
 
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 class Computadora
@@ -22,6 +24,30 @@ public:
     int getMemoriaRam();
     void setAlmacenamiento(int v);
     int getAlmacenamiento();
+    
+    friend ostream &operator<< (ostream &out, const Computadora &c)
+    {
+        out << left;
+        out << setw(20) << c.sistemaOperativo;
+        out << setw(15) << c.procesador;
+        out << setw(5) << c.memoriaRam ;
+        out << setw(5) << c.almacenamiento;
+        out << endl;
+        return out;
+    }
+
+    friend istream &operator>> (istream &in, Computadora &c)
+    {
+        cout << "Sistema Operativo: ";
+        getline(cin, c.sistemaOperativo);
+        cout << "Procesador: ";
+        getline(cin, c.procesador);
+        cout << "Memoria RAM: ";
+        cin >> c.memoriaRam;
+        cout << "Almacenamiento: ";
+        cin >> c.almacenamiento;
+        return in;
+    }
 };
 
 
